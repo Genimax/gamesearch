@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
+import classNameRender from "./ClassNameRender";
 
-const Logo: React.FC = (onClick) => {
+const Logo: React.FC = () => {
   const [path, setPath] = useState(window.location.pathname);
-
-  const classNameRender: Function = (): string => {
-    if (path !== "/") return "-up";
-    return "";
-  };
 
   useEffect(() => {
     const onLocationChange = () => {
@@ -31,10 +27,10 @@ const Logo: React.FC = (onClick) => {
     <a
       href="/"
       onClick={onLogoClick}
-      className={`logo-container${classNameRender()}`}
+      className={`logo-container${classNameRender(path, "-up")}`}
     >
       <img
-        className={`logo-icon${classNameRender()}`}
+        className={`logo-icon${classNameRender(path, "-up")}`}
         src="./logo1.svg"
         alt="logo"
       />
