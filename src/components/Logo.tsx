@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Logo: React.FC = () => {
+const Logo: React.FC = (onClick) => {
   const [path, setPath] = useState(window.location.pathname);
 
   const classNameRender: Function = (): string => {

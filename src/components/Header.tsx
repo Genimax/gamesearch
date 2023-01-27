@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
-const Header: React.FC = () => {
+const Header = () => {
+  const [placeholder, setPlaceholder] = useState("find your game");
+
   return (
     <div className="main-container">
       <Logo />
-      <SearchBar />
+      <SearchBar defaultText={placeholder} onGameChange={setPlaceholder} />
     </div>
   );
 };
