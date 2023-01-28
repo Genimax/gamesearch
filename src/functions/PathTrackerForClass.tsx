@@ -1,8 +1,6 @@
 import React from "react";
 
 const onLocationChange = (component: React.Component) => {
-  console.log(component);
-
   const setTracker = () => {
     component.setState({ path: window.location.pathname });
   };

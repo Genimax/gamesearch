@@ -1,17 +1,68 @@
-import React from "react";
-import PathTrackerClass from "../functions/PathTrackerForClass";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PageLoader from "./PageLoader";
+import GameDescription from "./GameDescription";
 
-class GamePage extends React.Component {
-  state = { path: window.location.pathname };
+const GamePage = () => {
+  const [loadingGamePage, setLoadingPage] = useState(true);
+  const [gameData, setGameData] = useState({});
+  const [path, setPath] = useState(window.location.pathname);
+  const [hiddenClass, setHiddenClass] = useState("hidden");
 
-  componentDidMount() {
-    PathTrackerClass(this);
+  const downloadPage = async () => {
+    setLoadingPage(true);
+    try {
+      const gameInfo: any = await axios.get(
+        `${process.env.REACT_APP_LOCALAPI}/gamepagerequest`,
+        {
+          params: {
+            id: path.replace("/", ""),
+          },
+        }
+      );
+      setGameData(gameInfo.data[0]);
+    } catch (e) {
+      console.log(e);
+    }
+
+    setLoadingPage(false);
+  };
+
+  useEffect(() => {
+    const onLocationChange = () => {
+      setPath(window.location.pathname);
+    };
+    window.addEventListener("popstate", onLocationChange);
+
+    return () => {
+      window.removeEventListener("popstate", onLocationChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    downloadPage();
+  }, [path]);
+
+  const gamePageRenderer: Function = (data: any) => {
+    return (
+      <>
+        <GameDescription data={data} />
+      </>
+    );
+  };
+
+  function showPage() {
+    if (loadingGamePage === true) {
+      return <PageLoader />;
+    }
+    return (
+      <div className="game-page-container hidden">
+        {gamePageRenderer(gameData)}
+      </div>
+    );
   }
 
-  render(): React.ReactNode {
-    // return <div>{this.state.path}</div>;
-    return;
-  }
-}
+  return showPage();
+};
 
 export default GamePage;

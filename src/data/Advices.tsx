@@ -26,6 +26,10 @@ const Advices: String[] = [
   "By choosing a low level of difficulty, you will be born into a rich family.",
 
   "If you have died, you can never be resurrected again.",
+
+  "Girls can be aggressive if you grab them.",
+
+  "If you want to have a nice weekend - spend it without a girl. But if you want to stay alive - do not use this rule.",
 ];
 
 export default Advices;

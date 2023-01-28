@@ -3,6 +3,8 @@
 html {
   font-family: "Raleway", sans-serif;
   font-size: 0.9vmax;
+  font-variant-numeric: lining-nums;
+
   margin: 0;
   padding: 0;
   background-color: #46344e;
@@ -35,6 +37,12 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-container-up {
@@ -228,6 +236,202 @@ h4 {
   padding: 10px 0;
   pointer-events: none;
   user-select: none;
+}
+
+.game-page-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 72px;
+  width: 75%;
+  justify-self: center;
+  align-self: center;
+  opacity: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.game-description {
+  display: flex;
+  min-width: 100%;
+  min-height: 362px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.game-cover {
+  min-height: fit-content;
+  height: 100%;
+  object-fit: scale-down;
+  margin-right: 32px;
+  border-radius: 8%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.8);
+  user-select: none;
+  transition: scale 2s ease-out;
+}
+
+.game-cover:hover {
+  scale: 105%;
+}
+
+.game-text-container {
+  min-height: 362px;
+  max-width: 588px;
+  min-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: auto;
+  margin-right: 80px;
+}
+
+.game-title {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  color: #faed26;
+  font-size: 39px;
+  font-weight: 900;
+}
+
+.game-summary {
+  min-height: 245px;
+  display: flex;
+}
+
+.game-summary > p {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 500;
+  min-width: 100%;
+  align-self: center;
+}
+
+.stats-n-links-container {
+  height: 100%;
+  min-height: 362px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  min-width: 40%;
+}
+
+.stats-date-n-devs-vs-rate {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.links-container {
+  display: flex;
+  align-self: center;
+  width: 100%;
+}
+
+.date-n-devs-container {
+  text-align: right;
+  width: 50%;
+}
+
+.date-container {
+  margin-bottom: 50px;
+}
+
+.rate-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-n-devs-label {
+  color: #cb9385;
+  font-weight: 500;
+  font-size: 19px;
+  text-align: right;
+}
+
+.date-n-devs-value {
+  font-size: 19px;
+  color: #faed26;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.rate-label {
+  color: #cb9385;
+  font-weight: 900;
+  font-size: 27px;
+}
+
+.rate-circle {
+  width: 124px;
+  height: 124px;
+  color: #faed26;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 900;
+  font-size: 34px;
+  border: 8px double #faec26;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100%;
+  width: fit-content;
+  height: 37px;
+  border: #cb9385 2px solid;
+  border-radius: 28px;
+}
+
+.link-container {
+  margin: 0 10px;
+  display: flex;
+  width: fit-content;
+  color: #cb9385;
+  font-size: 15px;
+  font-weight: 300;
+  transition: opacity 0.3s ease-out, scale 0.5s ease-out;
+}
+
+.link-container:hover {
+  opacity: 50%;
+  scale: 115%;
+}
+
+.website-icon {
+  margin-right: 8px;
+  width: 17px;
+  height: 17px;
+}
+
+.error-game-page {
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  font-size: 50px;
+  font-weight: 900;
+  opacity: 20%;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  border-top: 10px dashed;
+  border-bottom: 10px dashed;
+  user-select: none;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 @keyframes rotation {
