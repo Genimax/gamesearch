@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "./Header";
+import GamePage from "./GamePage";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <GamePage />
+    </>
   );
 };
 

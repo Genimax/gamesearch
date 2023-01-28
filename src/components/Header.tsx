@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
-import classNameRender from "./ClassNameRender";
+import classNameRender from "../functions/ClassNameRender";
+import { useHeader } from "../hooks/header";
 
 const Header: React.FC = () => {
-  const [placeholder, setPlaceholder] = useState("find your game");
-
-  const [path, setPath] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const onLocationChange = () => {
-      setPath(window.location.pathname);
-    };
-
-    window.addEventListener("popstate", onLocationChange);
-
-    return () => {
-      window.removeEventListener("popstate", onLocationChange);
-    };
-  }, []);
+  const { placeholder, path, setPlaceholder } = useHeader();
 
   return (
     <div className={`main-container${classNameRender(path, "-up")}`}>
