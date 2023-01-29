@@ -16,11 +16,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
     searchText,
     renderedList,
     gameList,
+    handleKeyDown,
   } = useSearchbar(onGameChange);
 
   return (
     <div ref={ref} className="searchbar-container">
       <input
+        onKeyDown={handleKeyDown}
         onClick={() => setOpen(true)}
         className="searchbar"
         onChange={onSearchTextChange}

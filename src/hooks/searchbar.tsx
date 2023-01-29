@@ -10,8 +10,30 @@ export function useSearchbar(onGameChange: Function) {
   const [gameList, setGameList] = useState([]);
   const [selectedGame, setSelectedGame] = useState({});
   const [open, setOpen] = useState(false);
+  const [cursor, setCursor] = useState(-1);
 
   const ref = React.useRef<HTMLInputElement>(null);
+
+  const handleKeyDown = (e: any) => {
+    if (e.keyCode === 38 && cursor > 0) {
+      setCursor(cursor - 1);
+    } else if (e.keyCode === 40 && cursor < gameList.length - 1) {
+      setCursor(cursor + 1);
+    } else if (e.keyCode === 40 && cursor === gameList.length - 1) {
+      setCursor(0);
+    }
+
+    if (e.key === "Enter" && gameList.length > 0) {
+      // const href = gameList[cursor]["id"];
+      onGameSelect(gameList[cursor]);
+      setCursor(-1);
+    }
+
+    if (e.key === "Escape") {
+      setOpen(false);
+      setCursor(-1);
+    }
+  };
 
   useEffect(() => {
     const onBodyClick = (e: any) => {
@@ -19,6 +41,7 @@ export function useSearchbar(onGameChange: Function) {
         return;
       }
       setOpen(false);
+      setCursor(-1);
     };
     document.body.addEventListener("click", onBodyClick, { capture: true });
 
@@ -36,6 +59,7 @@ export function useSearchbar(onGameChange: Function) {
   useEffect(() => {}, [open]);
 
   useEffect(() => {
+    setOpen(true);
     setLoadingStatus(true);
     if (searchText.length < 3) setGameList([]);
     const searchTimeout = setTimeout(() => {
@@ -75,11 +99,13 @@ export function useSearchbar(onGameChange: Function) {
   }, [requestText]);
 
   const renderedList = (gameList: any) => {
-    if (searchText.length < 3 || selectedGame === searchText) return null;
-    const gamesElements = gameList.map((game: any) => {
+    if (searchText.length < 3) return null;
+    const gamesElements = gameList.map((game: any, i: Number) => {
       return (
         <li
-          className="search-item"
+          className={`search-item ${
+            cursor === i ? "search-item-active" : null
+          }`}
           onClick={(e) => {
             onGameSelect(e.currentTarget);
           }}
@@ -93,7 +119,7 @@ export function useSearchbar(onGameChange: Function) {
     if (!open) return null;
     if (loadingStatus === false && gameList.length > 0)
       return (
-        <div className="search-results">
+        <div ref={ref} className="search-results">
           <ul id="results">{gamesElements}</ul>
         </div>
       );
@@ -123,5 +149,6 @@ export function useSearchbar(onGameChange: Function) {
     searchText,
     renderedList,
     gameList,
+    handleKeyDown,
   };
 }

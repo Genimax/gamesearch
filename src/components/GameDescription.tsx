@@ -18,9 +18,8 @@ const GameDescription = (props: any) => {
     const rating = Math.floor(data.total_rating);
 
     const companiesRenderer = () => {
-      const companies = data.involved_companies;
-
-      if (companies) {
+      if (data.involved_companies) {
+        const companies = data.involved_companies.reverse().slice(0, 4);
         return companies.map((company: any) => {
           return (
             <p className="date-n-devs-value" key={company.id}>
@@ -44,10 +43,7 @@ const GameDescription = (props: any) => {
 
       if (data.websites) {
         const filtered = data.websites.filter((website: any) => {
-          return (
-            Object.keys(allowedWebsites).includes(`${website.category}`) &&
-            website.trusted
-          );
+          return Object.keys(allowedWebsites).includes(`${website.category}`);
         });
 
         if (filtered.length > 0) {
@@ -56,7 +52,12 @@ const GameDescription = (props: any) => {
               {filtered.map((website: any) => {
                 return (
                   <div key={website.id}>
-                    <a className="link-container" href={website.url}>
+                    <a
+                      className="link-container"
+                      href={website.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img
                         className="website-icon"
                         alt="website icon"
@@ -73,6 +74,7 @@ const GameDescription = (props: any) => {
                   </div>
                 );
               })}
+              <br />
             </div>
           );
         } else return null;
@@ -95,7 +97,11 @@ const GameDescription = (props: any) => {
         <div className="game-text-container">
           <h1 className="game-title">{data.name}</h1>
           <div className="game-summary">
-            <p>{data.summary}</p>
+            <p
+              className={data.summary ? "game-desc-text" : "empty-placeholder"}
+            >
+              {data.summary || "No description, but you hold on"}
+            </p>
           </div>
         </div>
         <div className="stats-n-links-container">

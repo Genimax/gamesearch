@@ -7,7 +7,6 @@ const GamePage = () => {
   const [loadingGamePage, setLoadingPage] = useState(true);
   const [gameData, setGameData] = useState({});
   const [path, setPath] = useState(window.location.pathname);
-  const [hiddenClass, setHiddenClass] = useState("hidden");
 
   const downloadPage = async () => {
     setLoadingPage(true);

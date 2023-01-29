@@ -19,6 +19,15 @@ body {
   transition: opacity 0.5s ease-out;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 5px solid rgba(0, 0, 0, 0.311);
+  margin: 5em 0;
+  padding: 0;
+}
+
 .opacity-none {
   opacity: 0;
 }
@@ -190,7 +199,8 @@ h4 {
   transition: color 0.3s ease-out;
 }
 
-.search-item:hover {
+.search-item:hover,
+.search-item-active {
   color: #faed26;
 }
 
@@ -296,7 +306,7 @@ h4 {
   display: flex;
 }
 
-.game-summary > p {
+.game-desc-text {
   color: #ffffff;
   font-size: 19px;
   font-weight: 500;
@@ -390,7 +400,7 @@ h4 {
 }
 
 .link-container {
-  margin: 0 20px;
+  margin: 0 25px;
   display: flex;
   width: fit-content;
   color: #cb9385;
@@ -426,6 +436,23 @@ h4 {
   border-top: 10px dashed;
   border-bottom: 10px dashed;
   user-select: none;
+}
+
+.website-title {
+  white-space: nowrap;
+}
+
+.empty-placeholder {
+  min-width: 100%;
+  text-align: center;
+  opacity: 20%;
+  font-size: 50px;
+  font-weight: 900;
+  min-width: 100%;
+  align-self: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
 }
 
 .hidden {
