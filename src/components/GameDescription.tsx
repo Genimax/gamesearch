@@ -20,13 +20,17 @@ const GameDescription = (props: any) => {
     const companiesRenderer = () => {
       const companies = data.involved_companies;
 
-      return companies.map((company: any) => {
-        return (
-          <p className="date-n-devs-value" key={company.id}>
-            {company.company.name}
-          </p>
-        );
-      });
+      if (companies) {
+        return companies.map((company: any) => {
+          return (
+            <p className="date-n-devs-value" key={company.id}>
+              {company.company.name}
+            </p>
+          );
+        });
+      } else {
+        return <p className="date-n-devs-value">-</p>;
+      }
     };
 
     const linksRenderer = () => {
@@ -38,37 +42,41 @@ const GameDescription = (props: any) => {
         18: "Discord",
       };
 
-      const filtered = data.websites.filter((website: any) => {
-        return (
-          Object.keys(allowedWebsites).includes(`${website.category}`) &&
-          website.trusted
-        );
-      });
+      if (data.websites) {
+        const filtered = data.websites.filter((website: any) => {
+          return (
+            Object.keys(allowedWebsites).includes(`${website.category}`) &&
+            website.trusted
+          );
+        });
 
-      if (filtered.length > 0) {
-        return (
-          <div className="links-container">
-            {filtered.map((website: any) => {
-              return (
-                <div key={website.id}>
-                  <a className="link-container" href={website.url}>
-                    <img
-                      className="website-icon"
-                      alt="website icon"
-                      src={
-                        "./icons/" + allowedWebsites[website.category] + ".png"
-                      }
-                    />
-                    <p className="website-title">
-                      {allowedWebsites[website.category].toUpperCase()}
-                    </p>
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        );
-      } else return null;
+        if (filtered.length > 0) {
+          return (
+            <div className="links-container">
+              {filtered.map((website: any) => {
+                return (
+                  <div key={website.id}>
+                    <a className="link-container" href={website.url}>
+                      <img
+                        className="website-icon"
+                        alt="website icon"
+                        src={
+                          "./icons/" +
+                          allowedWebsites[website.category] +
+                          ".png"
+                        }
+                      />
+                      <p className="website-title">
+                        {allowedWebsites[website.category].toUpperCase()}
+                      </p>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        } else return null;
+      }
     };
 
     console.log(data);
