@@ -1,54 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import PageLoader from "./PageLoader";
 import GameDescription from "./GameDescription";
+import GameImages from "./GameImages";
+import useGamePage from "../hooks/gamePage";
 
 const GamePage = () => {
-  const [loadingGamePage, setLoadingPage] = useState(true);
-  const [gameData, setGameData] = useState({});
-  const [path, setPath] = useState(window.location.pathname);
-
-  const downloadPage = async () => {
-    setLoadingPage(true);
-    try {
-      const gameInfo: any = await axios.get(
-        `${process.env.REACT_APP_LOCALAPI}/gamepagerequest`,
-        {
-          params: {
-            id: path.replace("/", ""),
-          },
-        }
-      );
-      setGameData(gameInfo.data[0]);
-    } catch (e) {
-      console.log(e);
-    }
-
-    setLoadingPage(false);
-  };
-
-  useEffect(() => {
-    const onLocationChange = () => {
-      setPath(window.location.pathname);
-    };
-    window.addEventListener("popstate", onLocationChange);
-
-    return () => {
-      window.removeEventListener("popstate", onLocationChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    downloadPage();
-  }, [path]);
-
-  const gamePageRenderer: Function = (data: any) => {
-    return (
-      <>
-        <GameDescription data={data} />
-      </>
-    );
-  };
+  const { loadingGamePage, gameData } = useGamePage();
 
   function showPage() {
     if (loadingGamePage === true) {
@@ -56,7 +12,11 @@ const GamePage = () => {
     }
     return (
       <div className="game-page-container hidden">
-        {gamePageRenderer(gameData)}
+        <GameDescription data={gameData} />
+
+        <div>
+          <GameImages data={gameData} />
+        </div>
       </div>
     );
   }

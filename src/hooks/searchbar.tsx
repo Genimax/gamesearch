@@ -8,7 +8,6 @@ export function useSearchbar(onGameChange: Function) {
   const [requestText, setRequestText] = useState(searchText);
   const [loadingStatus, setLoadingStatus] = useState(false);
   const [gameList, setGameList] = useState([]);
-  const [selectedGame, setSelectedGame] = useState({});
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(-1);
 
@@ -133,13 +132,14 @@ export function useSearchbar(onGameChange: Function) {
   };
 
   const onGameSelect = (game: any) => {
+    setSearchText(game.innerHTML);
     setAdvice(chooseAdvice());
     window.history.pushState({}, "", `/${game.id}`);
     const navEvent = new PopStateEvent("popstate");
     window.dispatchEvent(navEvent);
-    setSelectedGame(game.innerHTML);
     onGameChange(game.innerHTML);
-    setSearchText("");
+
+    setOpen(false);
   };
 
   return {
