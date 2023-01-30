@@ -128,6 +128,7 @@
   transform: translateY(-50%);
 }
 .image-gallery-content {
+  min-width: 400px;
   max-width: 650px;
   display: block;
   flex-direction: column;
@@ -426,7 +427,7 @@
   z-index: 4;
 }
 
-.screenshots-title {
+.block-title {
   text-align: left;
   color: #cb9385;
   font-size: 24px;

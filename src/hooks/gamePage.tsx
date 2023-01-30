@@ -40,5 +40,5 @@ export default function useGamePage() {
     downloadPage();
   }, [path]);
 
-  return { loadingGamePage, gameData };
+  return { loadingGamePage, gameData, setLoadingPage };
 }

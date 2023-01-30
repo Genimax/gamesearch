@@ -14,6 +14,8 @@ export function useSearchbar(onGameChange: Function) {
   const ref = React.useRef<HTMLInputElement>(null);
 
   const handleKeyDown = (e: any) => {
+    if (e.keyCode === 38) e.preventDefault();
+
     if (e.keyCode === 38 && cursor > 0) {
       setCursor(cursor - 1);
     } else if (e.keyCode === 40 && cursor < gameList.length - 1) {
@@ -132,7 +134,6 @@ export function useSearchbar(onGameChange: Function) {
   };
 
   const onGameSelect = (game: any) => {
-    setSearchText(game.innerHTML);
     setAdvice(chooseAdvice());
     window.history.pushState({}, "", `/${game.id}`);
     const navEvent = new PopStateEvent("popstate");

@@ -1,0 +1,53 @@
+[33mcommit 74c8736e2f75182dcd8298afde024d8ac1351b86[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Mon Jan 30 21:08:17 2023 +0700
+
+    screenshots added
+
+[33mcommit 58a6ca75d0e9e0f20c7b3e28c1434d4a8cad1d1f[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Mon Jan 30 01:45:58 2023 +0700
+
+    searchbar set keyboard navigation
+
+[33mcommit f3e13a51f92829681fecd93a832e99e1dfe99227[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Sun Jan 29 15:07:12 2023 +0700
+
+    game page header bugs fixed
+
+[33mcommit e8ee0e60b61576c5b1085a22ad4c9fc5ec67e1a6[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Sun Jan 29 05:16:51 2023 +0700
+
+    game page header complete
+
+[33mcommit 495c6a6b13dd469c2779e0e90031aafed48ca412[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Sat Jan 28 18:39:08 2023 +0700
+
+    main page with advices search complete
+
+[33mcommit afe2621ebce99fddb7c8e60ce6da1bf7406b772d[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Fri Jan 27 17:28:55 2023 +0700
+
+    main page css fixed
+
+[33mcommit 5a144c26e69fadba4bc4983c4a543c0c15bd7e8d[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Fri Jan 27 07:04:07 2023 +0700
+
+    main page + game selection
+
+[33mcommit 32f2641687939ae9942111deff2d937ea48b6dd8[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Fri Jan 27 03:56:24 2023 +0700
+
+    init commit
+
+[33mcommit 44c97a96e732700af7ebd5d37d23415124ec1a22[m
+Author: Genimax <urdnot.wrexx21@gmail.com>
+Date:   Fri Jan 27 00:47:48 2023 +0700
+
+    Initialize project using Create React App

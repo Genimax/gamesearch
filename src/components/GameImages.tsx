@@ -1,5 +1,5 @@
-import React from "react";
 import ImageGallery from "react-image-gallery";
+import useLoadingElement from "../hooks/useLoadingElement";
 
 interface Screenshots {
   id: Number;
@@ -8,6 +8,8 @@ interface Screenshots {
 }
 
 const GameImages = (props: any) => {
+  const { loadingStatus, setLoadingStatus } = useLoadingElement();
+
   const data = props.data;
 
   const galleryConstructor = () => {
@@ -25,20 +27,16 @@ const GameImages = (props: any) => {
         return {
           original: imageOriginalURL,
           thumbnail: imageThumbnailURL,
+          thumbnailLoading: "lazy",
         };
       });
       return (
-        <div className="hidden" id="images_container">
-          <h2 className="screenshots-title">SCREENSHOTS: </h2>
+        <div className={loadingStatus ? "hidden" : ""} id="images_container">
+          <h2 className="block-title">SCREENSHOTS: </h2>
           <ImageGallery
             showThumbnails={false}
             showPlayButton={false}
-            isRTL={true}
-            onImageLoad={() => {
-              document
-                .getElementById("images_container")
-                ?.classList.remove("hidden");
-            }}
+            onImageLoad={() => setLoadingStatus(false)}
             items={images}
           />
         </div>

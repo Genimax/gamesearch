@@ -2,6 +2,7 @@ import PageLoader from "./PageLoader";
 import GameDescription from "./GameDescription";
 import GameImages from "./GameImages";
 import useGamePage from "../hooks/gamePage";
+import YoutubeBlock from "./YoutubeBlock";
 
 const GamePage = () => {
   const { loadingGamePage, gameData } = useGamePage();
@@ -14,7 +15,8 @@ const GamePage = () => {
       <div className="game-page-container hidden">
         <GameDescription data={gameData} />
 
-        <div>
+        <div className="yt-screenshots-container">
+          <YoutubeBlock data={gameData} />
           <GameImages data={gameData} />
         </div>
       </div>
