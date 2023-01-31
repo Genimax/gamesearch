@@ -1,8 +1,10 @@
+import { FC } from "react";
 import { useGameDescription } from "../hooks/gameDescription";
+import { IGameComponent } from "../types/types";
 
-const GameDescription = (props: any) => {
-  const { data, coverURL, date, rating, companiesRenderer, linksRenderer } =
-    useGameDescription(props);
+const GameDescription: FC<IGameComponent> = ({ data }) => {
+  const { coverURL, date, rating, companiesRenderer, linksRenderer } =
+    useGameDescription(data);
 
   try {
     console.log(data);
@@ -45,7 +47,7 @@ const GameDescription = (props: any) => {
               <div
                 className="rate-circle neonText"
                 style={{
-                  filter: `grayscale(${!isNaN(rating) ? 100 - rating : 100}%)`,
+                  filter: `grayscale(${rating ? 100 - rating : 100}%)`,
                 }}
               >
                 <p className="rating-text">{rating || "None"}</p>

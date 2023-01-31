@@ -434,7 +434,8 @@
   font-weight: 600;
   margin: 0;
   padding: 0;
-  padding-bottom: 20px;
+  padding-top: 120px;
+  margin-bottom: 20px;
 }
 
 .image-gallery-swipe,

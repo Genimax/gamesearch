@@ -1,20 +1,16 @@
+import { FC } from "react";
 import ImageGallery from "react-image-gallery";
 import useLoadingElement from "../hooks/useLoadingElement";
+import { IGameComponent, IScreenshot } from "../types/types";
 
-interface Screenshots {
-  id: Number;
-  image_id: String;
-  url: String;
-}
-
-const GameImages = (props: any) => {
+const GameImages: FC<IGameComponent> = (props: any) => {
   const { loadingStatus, setLoadingStatus } = useLoadingElement();
 
   const data = props.data;
 
   const galleryConstructor = () => {
     if (data.screenshots) {
-      const images = data.screenshots.map((screenshot: Screenshots) => {
+      const images = data.screenshots.map((screenshot: IScreenshot) => {
         const imageOriginalURL = screenshot.url.replace(
           "thumb",
           "screenshot_huge"

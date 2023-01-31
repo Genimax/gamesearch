@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export function useLogo() {
   const [path, setPath] = useState(window.location.pathname);
@@ -15,7 +15,7 @@ export function useLogo() {
     };
   }, []);
 
-  const onLogoClick = (e: any) => {
+  const onLogoClick = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
     window.history.pushState({}, "", "/");
     const navE = new PopStateEvent("popstate");

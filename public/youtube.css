@@ -1,13 +1,17 @@
 .youtube-main-container {
-  max-width: 1200px;
+  --container-max-height: 365px;
+
+  position: relative;
+  max-width: 50%;
+  max-height: var(--container-max-height);
   width: 100%;
-  height: 600px;
+  height: var(--container-max-height);
   margin-right: 30px;
 }
 
 .youtube-player {
   min-width: 70%;
-  height: 600px;
+  height: var(--container-max-height);
   border-right: #333333 3px solid;
 }
 
@@ -37,7 +41,7 @@
 .video-item-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+
   justify-items: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -45,20 +49,25 @@
   border-bottom-left-radius: 15px;
   overflow: hidden;
   outline: #2c2c2c 3px solid;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
   height: 18%;
   max-width: 100%;
-
-  transition: outline 0.3s ease-out, box-shadow 0.3s ease-out;
-
+  transition: outline 0.3s ease-out, box-shadow 0.3s ease-out,
+    scale 0.3s ease-out;
   cursor: pointer;
 }
 .video-item-title {
   margin: 0;
   padding-left: 5px;
+  padding-top: 5px;
   color: #cb9385;
-  font-size: 15px;
+  font-size: 13px;
   word-wrap: break-word;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translateZ(0);
 }
 
 .video-item-cover {
@@ -72,5 +81,6 @@
 .video-item-container:hover {
   box-shadow: 0 0 5px 5px rgba(255, 217, 0, 0.738);
   outline: none;
+  scale: 105%;
   z-index: 10;
 }

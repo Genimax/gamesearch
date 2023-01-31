@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Advices from "../data/Advices";
+import { ISearchGameName } from "../types/types";
 
-export function useSearchbar(onGameChange: Function) {
+export function useSearchbar(
+  onGameChange: React.Dispatch<React.SetStateAction<string>>
+) {
   const [searchText, setSearchText] = useState("");
   const [requestText, setRequestText] = useState(searchText);
   const [loadingStatus, setLoadingStatus] = useState(false);
-  const [gameList, setGameList] = useState([]);
+  const [gameList, setGameList] = useState<ISearchGameName[]>([]);
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(-1);
 
   const ref = React.useRef<HTMLInputElement>(null);
 
-  const handleKeyDown = (e: any) => {
+  const handleKeyDown = (e: any): void => {
     if (e.keyCode === 38) e.preventDefault();
 
     if (e.keyCode === 38 && cursor > 0) {
@@ -57,8 +60,6 @@ export function useSearchbar(onGameChange: Function) {
     setSearchText(e.target.value);
   };
 
-  useEffect(() => {}, [open]);
-
   useEffect(() => {
     setOpen(true);
     setLoadingStatus(true);
@@ -85,7 +86,7 @@ export function useSearchbar(onGameChange: Function) {
       setLoadingStatus(true);
 
       (async () => {
-        const games: any = await axios.get(
+        const games = await axios.get<ISearchGameName[]>(
           `${process.env.REACT_APP_LOCALAPI}/gamerequest`,
           {
             params: {
@@ -93,15 +94,16 @@ export function useSearchbar(onGameChange: Function) {
             },
           }
         );
+        console.log(games.data);
         setGameList(games.data);
         setLoadingStatus(false);
       })();
     }
   }, [requestText]);
 
-  const renderedList = (gameList: any) => {
+  const renderedList = (gameList: ISearchGameName[]) => {
     if (searchText.length < 3) return null;
-    const gamesElements = gameList.map((game: any, i: Number) => {
+    const gamesElements = gameList.map((game: ISearchGameName, i: Number) => {
       return (
         <li
           className={`search-item ${
@@ -111,7 +113,7 @@ export function useSearchbar(onGameChange: Function) {
             onGameSelect(e.currentTarget);
           }}
           key={game.id}
-          id={game.id}
+          id={game.id?.toString()}
         >
           {game.name}
         </li>

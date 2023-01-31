@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import youtube from "../api/youtube";
+import { IGameComponent } from "../types/types";
 import YTVideoList from "./YTVideoList";
 
-const YoutubeBlock = (props: any) => {
+const YoutubeBlock: FC<IGameComponent> = (props) => {
   const title = props.data.name;
 
   const [videos, setVideos] = useState([]);

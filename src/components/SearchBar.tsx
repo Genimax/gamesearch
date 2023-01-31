@@ -1,8 +1,9 @@
+import React from "react";
 import { useSearchbar } from "../hooks/searchbar";
 
 interface SearchBarProps {
-  defaultText?: string;
-  onGameChange?: any;
+  defaultText: string;
+  onGameChange: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({

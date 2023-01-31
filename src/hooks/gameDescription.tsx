@@ -1,24 +1,29 @@
-export function useGameDescription(props: any) {
-  const data = props.data;
+import { IGameData, IWebsite } from "../types/types";
 
-  const coverURL = `https:${data.cover.url.replace("thumb", "cover_big")}`;
+export function useGameDescription(data: IGameData) {
+  const game = data;
+
+  const coverURL = game.cover
+    ? `https:${game.cover.url.replace("thumb", "cover_big")}`
+    : undefined;
 
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  const date = data.first_release_date
-    ? new Date(data.first_release_date * 1000).toLocaleDateString(
+  const date = game.first_release_date
+    ? new Date(game.first_release_date * 1000).toLocaleDateString(
         "en-US",
         dateOptions
       )
     : "None";
-  const rating = Math.floor(data.total_rating);
+
+  const rating = game.total_rating ? Math.floor(game.total_rating) : null;
 
   const companiesRenderer = () => {
-    if (data.involved_companies) {
-      const companies = data.involved_companies.reverse().slice(0, 4);
+    if (game.involved_companies) {
+      const companies = game.involved_companies.reverse().slice(0, 4);
       return companies.map((company: any) => {
         return (
           <p className="date-n-devs-value" key={company.id}>
@@ -40,15 +45,15 @@ export function useGameDescription(props: any) {
       18: "Discord",
     };
 
-    if (data.websites) {
-      const filtered = data.websites.filter((website: any) => {
+    if (game.websites) {
+      const filtered = game.websites.filter((website: IWebsite) => {
         return Object.keys(allowedWebsites).includes(`${website.category}`);
       });
 
       if (filtered.length > 0) {
         return (
           <div className="links-container">
-            {filtered.map((website: any) => {
+            {filtered.map((website: IWebsite) => {
               return (
                 <div key={website.id}>
                   <a

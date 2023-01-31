@@ -1,11 +1,15 @@
+import { FC } from "react";
+
 import PageLoader from "./PageLoader";
 import GameDescription from "./GameDescription";
 import GameImages from "./GameImages";
 import useGamePage from "../hooks/gamePage";
 import YoutubeBlock from "./YoutubeBlock";
+import TwitchContainer from "./TwitchContainer";
 
-const GamePage = () => {
+const GamePage: FC = () => {
   const { loadingGamePage, gameData } = useGamePage();
+  const [data] = gameData;
 
   function showPage() {
     if (loadingGamePage === true) {
@@ -13,12 +17,13 @@ const GamePage = () => {
     }
     return (
       <div className="game-page-container hidden">
-        <GameDescription data={gameData} />
+        <GameDescription data={data} />
 
         <div className="yt-screenshots-container">
-          <YoutubeBlock data={gameData} />
-          <GameImages data={gameData} />
+          <YoutubeBlock data={data} />
+          <GameImages data={data} />
         </div>
+        <TwitchContainer id={data.id} />
       </div>
     );
   }
