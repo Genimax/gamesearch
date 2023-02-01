@@ -59,3 +59,19 @@ export interface ITwitchStreamData {
 export interface IStreamProps {
   data: ITwitchStreamData;
 }
+
+export interface ISteamReviewsProp {
+  websites?: IWebsite[];
+}
+
+export interface ISteamReviewData {
+  recommendationID: string;
+  review: string;
+  timestamp_created: number;
+  weighted_vote_score: string;
+}
+
+export interface ISteamReviewComponent {
+  index: number;
+  review: ISteamReviewData;
+}
