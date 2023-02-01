@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
 import { ITwitchProps, ITwitchStreamData } from "../types/types";
+import TwitchEmptyItem from "./TwitchEmptyItem";
 import TwitchItem from "./TwitchItem";
 
 const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
@@ -27,6 +28,19 @@ const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
     fetchStreams();
   }, []);
 
+  const emptyRender = () => {
+    if (streamsList.length === 5) return null;
+
+    const neededEmpties = 5 - streamsList.length;
+    const elements = [];
+
+    for (let i = 0; i < neededEmpties; i++) {
+      elements.push(<TwitchEmptyItem key={i} />);
+    }
+
+    return elements;
+  };
+
   return streamsList.length > 0 ? (
     <>
       <h2 className="block-title">TOP 5 TWITCH TRANSLATIONS NOW:</h2>
@@ -34,6 +48,7 @@ const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
         {streamsList.map((streamData) => (
           <TwitchItem key={streamData.id} data={streamData} />
         ))}
+        {emptyRender()}
       </div>
     </>
   ) : null;

@@ -43,7 +43,7 @@ const SteamContainer: FC<ISteamReviewsProp> = ({ websites }) => {
     if (steamID) {
       getReview();
     }
-  }, [steamID]);
+  }, [steamID, websites]);
 
   const createReviewComponents = () => {
     return reviewsContainer.map((review) => (
@@ -58,12 +58,12 @@ const SteamContainer: FC<ISteamReviewsProp> = ({ websites }) => {
   if (reviewsContainer.length === 0) return null;
 
   return (
-    <>
+    <div className={"parent-conainer"}>
       <h2 className="block-title">STEAM REVIEWS:</h2>
       <div className="steam-review-container">
         {reviewsContainer.length > 0 ? createReviewComponents() : null}
       </div>
-    </>
+    </div>
   );
 };
 export default SteamContainer;

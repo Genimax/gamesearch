@@ -1,15 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;700;900&display=swap");
 
 html {
+  position: relative;
   font-family: "Raleway", sans-serif;
   font-size: 0.9vmax;
   font-variant-numeric: lining-nums;
-
   margin: 0;
   padding: 0;
   background-color: #46344e;
   margin: 0;
   padding: 0;
+}
+
+html::-webkit-scrollbar {
+  position: absolute;
+  width: 0.6vw;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(31, 31, 31, 0.349);
+  border-radius: 0.6vw;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: rgba(39, 39, 39, 0.292);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(39, 39, 39);
 }
 
 a {
@@ -268,6 +286,7 @@ h4 {
   min-width: 100%;
   min-height: 362px;
   align-items: flex-start;
+  margin-bottom: 60px;
 }
 
 .game-cover {
@@ -465,6 +484,7 @@ h4 {
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
+  margin-bottom: 60px;
 }
 
 #images_container {
@@ -475,9 +495,14 @@ h4 {
   opacity: 100%;
 }
 
+.parent-container {
+  transition: opacity 3s ease-out;
+  opacity: 1;
+}
+
 .hidden {
   opacity: 0;
-  transition: opacity 5s ease-out;
+  transition: opacity 3s ease-out;
 }
 
 @keyframes rotation {
