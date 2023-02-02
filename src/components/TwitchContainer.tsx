@@ -42,7 +42,7 @@ const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
   };
 
   return streamsList.length > 0 ? (
-    <>
+    <div className="parent-container">
       <h2 className="block-title">TOP 5 TWITCH TRANSLATIONS NOW:</h2>
       <div className="twitch-streams-container">
         {streamsList.map((streamData) => (
@@ -50,7 +50,7 @@ const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
         ))}
         {emptyRender()}
       </div>
-    </>
+    </div>
   ) : null;
 };
 

@@ -9,7 +9,7 @@ const GameDescription: FC<IGameComponent> = ({ data }) => {
   try {
     console.log(data);
     return (
-      <div className={"game-description"}>
+      <div className="parent-container game-description">
         <img
           className="game-cover"
           onLoad={() => {

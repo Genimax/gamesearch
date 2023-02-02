@@ -27,7 +27,10 @@ const GameImages: FC<IGameComponent> = (props: any) => {
         };
       });
       return (
-        <div className={loadingStatus ? "hidden" : ""} id="images_container">
+        <div
+          className={(loadingStatus ? "hidden" : "") + " parent-container"}
+          id="images_container"
+        >
           <h2 className="block-title">SCREENSHOTS: </h2>
           <ImageGallery
             showThumbnails={false}

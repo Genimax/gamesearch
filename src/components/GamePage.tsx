@@ -21,7 +21,7 @@ const GamePage: FC = () => {
         <GameDescription data={data} />
 
         <div className="yt-screenshots-container">
-          {/* <YoutubeBlock data={data} /> */}
+          <YoutubeBlock data={data} />
           <GameImages data={data} />
         </div>
         <TwitchContainer id={data.id} />

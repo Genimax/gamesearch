@@ -1,0 +1,124 @@
+@media screen and (max-width: 1920px) {
+  .yt-screenshots-container {
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .yt-screenshots-container > #images_container {
+    padding-top: 60px;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+  }
+
+  .youtube-main-container {
+    min-width: 100%;
+    margin-bottom: 60px;
+  }
+
+  .twitch-streams-container {
+    flex-wrap: wrap;
+    max-height: fit-content;
+    width: fit-content;
+    min-width: fit-content;
+    justify-content: center;
+  }
+
+  .twitch-item-container {
+    width: 300px;
+    margin: 30px;
+  }
+
+  .game-description {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stats-n-links-container {
+    width: 80%;
+    padding-top: 60px;
+  }
+
+  .stats-date-n-devs-vs-rate {
+    justify-content: space-between;
+  }
+
+  .date-n-devs-container,
+  .date-n-devs-label {
+    text-align: left;
+  }
+
+  .rate-container {
+    width: fit-content;
+    justify-content: flex-start;
+    align-items: right;
+  }
+
+  .links-container {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .youtube-list-vs-player-container {
+    min-width: 100%;
+  }
+
+  .game-cover {
+    margin-bottom: 60px;
+    width: 40%;
+    object-fit: cover;
+    margin-right: 0;
+  }
+
+  .game-text-container {
+    min-width: 100%;
+    min-height: auto;
+  }
+
+  .game-summary {
+    min-height: auto;
+  }
+
+  .stats-n-links-container {
+    width: 100%;
+  }
+
+  .video-item-cover {
+    /* display: none; */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .video-item-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .steam-review-container {
+    flex-direction: column;
+    max-height: none;
+    height: 1000px;
+  }
+
+  .steam-review {
+    width: 80%;
+    height: 40%;
+    max-height: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .game-cover {
+    width: 80%;
+  }
+
+  .header-container-up {
+    width: fit-content;
+  }
+
+  .searchbar-container {
+    width: 90vw;
+  }
+}

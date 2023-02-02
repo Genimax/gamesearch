@@ -290,6 +290,7 @@ h4 {
 }
 
 .game-cover {
+  background-color: black;
   min-height: fit-content;
   justify-self: flex-start;
   height: 100%;
@@ -497,7 +498,10 @@ h4 {
 
 .parent-container {
   transition: opacity 3s ease-out;
-  opacity: 1;
+
+  animation-name: revealing;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
 }
 
 .hidden {
@@ -514,5 +518,19 @@ h4 {
   }
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+@keyframes revealing {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 50;
+  }
+
+  100% {
+    opacity: 100;
   }
 }

@@ -29,7 +29,7 @@ const YoutubeBlock: FC<IGameComponent> = (props) => {
   }, []);
 
   return (
-    <div className="youtube-main-container">
+    <div className="youtube-main-container parent-container">
       <h2 className="block-title">TOP 5 YOUTUBE VIDEOS:</h2>
       <div className="youtube-list-vs-player-container">
         <iframe

@@ -16,7 +16,9 @@ const SteamReview: FC<ISteamReviewComponent> = ({ index, review }) => {
       </p>
       <div className="review-text">
         {review.review.split(". ").map((sentence) => (
-          <p key={Math.random()}>{sentence + "."}</p>
+          <p className="review-paragraph" key={Math.random()}>
+            {sentence + "."}
+          </p>
         ))}
       </div>
     </div>

@@ -17,8 +17,15 @@ const SteamContainer: FC<ISteamReviewsProp> = ({ websites }) => {
     const steamURL = websites?.filter((website) => website.category === 13)[0];
 
     if (steamURL) {
+      const removedPrefix = steamURL?.url.replace(
+        "https://store.steampowered.com/app/",
+        ""
+      );
+
       setSteamID(
-        steamURL?.url.replace("https://store.steampowered.com/app/", "")
+        removedPrefix.includes("/")
+          ? removedPrefix.split("/")[0]
+          : removedPrefix
       );
     }
 
@@ -58,7 +65,7 @@ const SteamContainer: FC<ISteamReviewsProp> = ({ websites }) => {
   if (reviewsContainer.length === 0) return null;
 
   return (
-    <div className={"parent-conainer"}>
+    <div className="parent-container">
       <h2 className="block-title">STEAM REVIEWS:</h2>
       <div className="steam-review-container">
         {reviewsContainer.length > 0 ? createReviewComponents() : null}
