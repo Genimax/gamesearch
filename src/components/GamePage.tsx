@@ -30,7 +30,15 @@ const GamePage: FC = () => {
     );
   }
 
-  return showPage();
+  try {
+    return showPage();
+  } catch {
+    return (
+      <div className="error-game-page">
+        O_o ps: we couldn't find this game :(
+      </div>
+    );
+  }
 };
 
 export default GamePage;

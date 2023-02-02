@@ -14,8 +14,9 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
+        <Route path="/" element={<Header />} />
         <Route
-          path="/*"
+          path="/:id"
           element={
             <>
               <Header />
