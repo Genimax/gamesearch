@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import GamePage from "./GamePage";
 import PathTrackerForClass from "../functions/PathTrackerForClass";
+import { Routes, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = { path: window.location.pathname };
@@ -12,10 +13,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <Header />
-        {this.state.path !== "/" ? <GamePage /> : null}
-      </>
+      <Routes>
+        <Route
+          path="*"
+          element={
+            <>
+              <Header />
+              {this.state.path !== "/" ? <GamePage /> : null}
+            </>
+          }
+        />
+      </Routes>
     );
   }
 }
