@@ -7,7 +7,6 @@ const GameDescription: FC<IGameComponent> = ({ data }) => {
     useGameDescription(data);
 
   try {
-    console.log(data);
     return (
       <div className="parent-container game-description">
         <img
@@ -59,7 +58,6 @@ const GameDescription: FC<IGameComponent> = ({ data }) => {
       </div>
     );
   } catch (e) {
-    console.log(e);
     return (
       <div className="error-game-page">
         O_o ps: We Couldn't find this game :(

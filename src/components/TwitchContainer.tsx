@@ -20,7 +20,6 @@ const TwitchContainer: FC<ITwitchProps> = ({ id }) => {
         );
 
         setStreamsList(response.data);
-        console.log(response);
       } catch (e) {
         console.log(e);
       }

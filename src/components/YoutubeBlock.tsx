@@ -19,8 +19,6 @@ const YoutubeBlock: FC<IGameComponent> = (props) => {
 
       setVideos(responce.data.items);
       setSelectedVideo(responce.data.items[0]);
-
-      console.log(responce);
     };
 
     getVideos();
