@@ -122,7 +122,12 @@
     width: fit-content;
   }
 
+  .header-container {
+    width: fit-content;
+  }
+
   .searchbar-container {
-    width: 90vw;
+    width: 80vw;
+    max-width: 80vw;
   }
 }
