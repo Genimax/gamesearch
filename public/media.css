@@ -75,6 +75,10 @@
     margin-right: 0;
   }
 
+  .game-cover:hover {
+    scale: 100%;
+  }
+
   .game-text-container {
     min-width: 100%;
     min-height: auto;
