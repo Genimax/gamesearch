@@ -20,7 +20,7 @@ const GamePage: FC = () => {
       <div className="game-page-container hidden">
         <GameDescription data={data} />
 
-        <div className="yt-screenshots-container">
+        <div className="yt-screenshots-container parent-container">
           <YoutubeBlock data={data} />
           <GameImages data={data} />
         </div>

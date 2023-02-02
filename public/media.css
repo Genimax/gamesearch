@@ -1,4 +1,8 @@
 @media screen and (max-width: 1900px) {
+  .links-container {
+    transform: translateY(40px);
+  }
+
   .yt-screenshots-container {
     flex-direction: column;
     align-items: left;

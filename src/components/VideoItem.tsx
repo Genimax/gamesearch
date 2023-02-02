@@ -1,5 +1,4 @@
 const VideoItem = ({ video, setSelectedVideo }: any) => {
-  console.log(video);
   return (
     <div
       className="video-item-container"

@@ -281,12 +281,21 @@ h4 {
   transition: opacity 1s ease-in-out;
 }
 
+.parent-container {
+  transition: opacity 3s ease-out;
+
+  animation-name: revealing;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  margin-bottom: 60px;
+}
+
 .game-description {
   display: flex;
   min-width: 100%;
   min-height: 362px;
   align-items: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .game-cover {
@@ -423,6 +432,7 @@ h4 {
   height: 37px;
   border: #cb9385 2px solid;
   border-radius: 28px;
+  transform: translateY(70px);
 }
 
 .link-container {
@@ -494,14 +504,6 @@ h4 {
   align-content: center;
   justify-content: center;
   opacity: 100%;
-}
-
-.parent-container {
-  transition: opacity 3s ease-out;
-
-  animation-name: revealing;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
 }
 
 .hidden {
