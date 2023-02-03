@@ -94,7 +94,7 @@ export function useSearchbar(
             },
           }
         );
-        console.log(games.data);
+
         setGameList(games.data);
         setLoadingStatus(false);
       })();
