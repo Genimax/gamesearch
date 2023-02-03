@@ -7,6 +7,7 @@ import useGamePage from "../hooks/gamePage";
 import YoutubeBlock from "./YoutubeBlock";
 import TwitchContainer from "./TwitchContainer";
 import SteamContainer from "./SteamContainer";
+import Header from "./Header";
 
 const GamePage: FC = () => {
   const { loadingGamePage, gameData } = useGamePage();
@@ -17,16 +18,19 @@ const GamePage: FC = () => {
       return <PageLoader />;
     }
     return (
-      <div className="game-page-container hidden">
-        <GameDescription data={data} />
+      <>
+        <Header />
+        <div className="game-page-container hidden">
+          <GameDescription data={data} />
 
-        <div className="yt-screenshots-container parent-container">
-          <YoutubeBlock data={data} />
-          <GameImages data={data} />
+          <div className="yt-screenshots-container parent-container">
+            <YoutubeBlock data={data} />
+            <GameImages data={data} />
+          </div>
+          <TwitchContainer id={data.id} />
+          {data.websites ? <SteamContainer websites={data.websites} /> : null}
         </div>
-        <TwitchContainer id={data.id} />
-        {data.websites ? <SteamContainer websites={data.websites} /> : null}
-      </div>
+      </>
     );
   }
 

@@ -80,7 +80,8 @@
   }
 
   .game-text-container {
-    min-width: 100%;
+    min-width: auto;
+    max-width: 90vw;
     min-height: auto;
   }
 
@@ -114,6 +115,121 @@
     width: 80%;
     height: 40%;
     max-height: 40%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .stats-n-links-container {
+    justify-self: center;
+  }
+
+  .stats-n-links-container {
+    width: 90vw;
+    justify-content: space-between;
+  }
+  .stats-date-n-devs-vs-rate {
+    flex-wrap: wrap;
+    width: 90vw;
+  }
+
+  .links-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90vw;
+    height: fit-content;
+  }
+
+  .link-container {
+    margin: 25px 255px;
+  }
+
+  .youtube-main-container {
+    min-width: none;
+    max-width: 80vw;
+    width: 80vw;
+    max-height: none;
+  }
+
+  .youtube-list-vs-player-container {
+    min-width: 50vw;
+    max-width: 90vw;
+    max-height: fit-content;
+    flex-wrap: wrap;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 25px;
+  }
+
+  .youtube-player {
+    border-right: none;
+    border-bottom: #333333 3px solid;
+    height: 60vw;
+    width: 90vw;
+    max-width: 90vw;
+  }
+
+  .parent-container {
+    width: 90vw;
+  }
+
+  .block-title {
+    width: 90vw;
+  }
+
+  .youtube-main-container {
+    height: fit-content;
+  }
+
+  .youtube-videos-list {
+    width: 90vw;
+    height: 90vw;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 25px;
+  }
+
+  .video-item-cover {
+    width: 30%;
+    max-width: 30%;
+    min-width: 30%;
+  }
+
+  .video-item-title {
+    display: block;
+  }
+
+  .parent-container {
+    justify-self: center;
+  }
+
+  .image-gallery {
+    width: 90vw;
+  }
+
+  .image-gallery-content {
+    min-width: 50vw;
+    max-width: 90vw;
+  }
+
+  .twitch-streams-container {
+    width: 90vw;
+    min-width: 90vw;
+  }
+
+  .game-page-container {
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .empty-stream-title {
+    font-size: 20px;
+  }
+
+  #root {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
   }
 }
 

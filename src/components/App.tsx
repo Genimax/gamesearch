@@ -17,12 +17,7 @@ class App extends React.Component {
         <Route path="/" element={<Header />} />
         <Route
           path="/:id"
-          element={
-            <>
-              <Header />
-              {this.state.path !== "/" ? <GamePage /> : null}
-            </>
-          }
+          element={<>{this.state.path !== "/" ? <GamePage /> : null}</>}
         />
       </Routes>
     );
