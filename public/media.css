@@ -123,6 +123,10 @@
     justify-self: center;
   }
 
+  .searchbar-container > img {
+    right: -2%;
+  }
+
   .stats-n-links-container {
     width: 90vw;
     justify-content: space-between;
