@@ -9,6 +9,7 @@ html {
   padding: 0;
   background-color: #46344e;
   max-width: 100vw !important;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {
